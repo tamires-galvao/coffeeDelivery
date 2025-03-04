@@ -1,6 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { BenefitItem, BenefitsList, Container, ImageContainer, TextContainer } from "./styled";
-import heroImg from "../../assets/img/copo_de_cafe.png";
+import heroImg from "/img/hero-coffee.svg";
 import { CicleButton } from "../../components/Button/styles";
 
 export function HeroSection () {  
@@ -37,7 +37,7 @@ export function HeroSection () {
                 </BenefitsList>
             </TextContainer>
             <ImageContainer>
-                <img src={heroImg} alt="Copo de Café" />
+                <img  id="hero-img" src={heroImg} alt="Copo de Café" />
             </ImageContainer>
         </Container>    )
  }

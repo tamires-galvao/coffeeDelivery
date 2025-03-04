@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  background: #f9f9f9;
-  border-radius: 12px;
+  background: ${props => props.theme['gray-150']};;
+  border-radius: 6px 36px;
   padding: 16px;
   width: 250px;
   text-align: center;
@@ -14,6 +14,7 @@ export const ImageContainer = styled.div`
   width: 100px;
   height: 100px;
   margin: 0 auto;
+  margin-top: -32px;
   border-radius: 50%;
   overflow: hidden;
 `;
@@ -22,6 +23,7 @@ export const ProductImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  align-self: center;
 `;
 
 export const TagsContainer = styled.div`
@@ -32,8 +34,8 @@ export const TagsContainer = styled.div`
 `;
 
 export const Tag = styled.span`
-  background: #f5d78e;
-  color: #5a3e1b;
+  background: ${props => props.theme['yellow-300']};
+  color: ${props => props.theme['yellow-700']};
   font-size: 12px;
   padding: 5px 10px;
   border-radius: 12px;
@@ -79,7 +81,7 @@ export const Quantity = styled.span`
 `;
 
 export const CartButton = styled.button`
-  background: #6a1b9a;
+  background: ${props => props.theme['purple-700']};
   color: white;
   border: none;
   padding: 8px;
@@ -87,11 +89,12 @@ export const CartButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  margin-left: 8px;
 `;
 
 export const StyledTag = styled.span`
-  background: #f5d78e;
-  color: #5a3e1b;
+  background: ${props => props.theme['yellow-300']};
+  color: ${props => props.theme['yellow-700']};
   font-size: 12px;
   padding: 5px 10px;
   border-radius: 12px;
