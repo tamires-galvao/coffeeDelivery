@@ -1,18 +1,17 @@
-import { BrowserRouter, Outlet } from "react-router-dom"; // Importar o BrowserRouter
+import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
-import { Home } from "./pages/Home";
 import { CartContextProvider } from "./context/CartProvider";
+import { Router } from "./routes/Router"; 
 
 export function App() {
   return (
-    <BrowserRouter> 
+    <BrowserRouter>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyle />
         <CartContextProvider>
-          <Home />
-          <Outlet/>
+          <Router /> 
         </CartContextProvider>
       </ThemeProvider>
     </BrowserRouter>

@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { mixins } from "../../../styles/mixins";
 
-
 export const Container = styled.label`
   padding: 16px;
   width: 100%;
@@ -11,19 +10,19 @@ export const Container = styled.label`
   gap: 12px;
   border-radius: 6px;
   border: 1px solid transparent;
-  background-color: ${({ theme }) => theme.colors['base-button']};
-  color: ${({ theme }) => theme.colors['base-text']};
+  background-color: ${(props) => props.theme["gray-300"]};
+  color: ${(props) => props.theme["gray-700"]};
   text-transform: uppercase;
   ${mixins.fonts.buttonM};
   transition: all 0.2s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors['base-hover']};
+    background-color: ${(props) => props.theme["gray-500"]};;
   }
 
   &[data-state='true'] {
-    background-color: ${({ theme }) => theme.colors['purple-light']};
-    border-color: ${({ theme }) => theme.colors.purple};
+    background-color: ${(props) => props.theme["purple-300"]};
+    border-color: ${(props) => props.theme["purple-500"]};
   }
 
   input {
@@ -31,6 +30,6 @@ export const Container = styled.label`
   }
 
   svg {
-    color: ${({ theme }) => theme.colors.purple};
+    color: ${(props) => props.theme["purple-300"]};
   }
 `

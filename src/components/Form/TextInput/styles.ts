@@ -13,23 +13,23 @@ export const Container = styled.label`
   align-items: center;
   justify-content: space-between;
   border-radius: 6px;
-  border: 1px solid ${({ theme }) => theme.colors['base-button']};
+  border: 1px solid ${(props) => props.theme["gray-300"]};
   border-radius: 6px;
 
-  background-color: ${({ theme }) => theme.colors['base-input']};
+  background-color:${(props) => props.theme["gray-150"]};
 
   transition: all 0.2s;
 
   &[data-state='focused'] {
-    border-color: ${({ theme }) => theme.colors['yellow-dark']};
+    border-color: ${(props) => props.theme["yellow-700"]};
   }
 
   &[data-state='blurred'] {
-    border-color: ${({ theme }) => theme.colors['base-button']};
+    border-color: ${(props) => props.theme["gray-300"]};
   }
 
   input {
-    color: ${({ theme }) => theme.colors['base-text']};
+    color: ${(props) => props.theme["gray-600"]};
     width: 100%;
     background-color: transparent;
     border: none;
@@ -37,12 +37,12 @@ export const Container = styled.label`
     outline: none;
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors['base-label']};
+      color: ${(props) => props.theme["gray-500"]};
     }
   }
 
   span {
-    color: ${({ theme }) => theme.colors['base-label']};
+    color: ${(props) => props.theme["gray-500"]};
     padding-right: 12px;
     ${mixins.fonts.textS};
     font-style: italic;

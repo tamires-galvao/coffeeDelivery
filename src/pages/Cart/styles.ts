@@ -17,7 +17,7 @@ export const InfoContainer = styled.div`
 
   h2 {
     ${mixins.fonts.titleXS};
-    color: ${({ theme }) => theme.colors['base-subtitle']};
+    color: ${(props) => props.theme["black-900"]};
   }
 
   > form {
@@ -30,7 +30,7 @@ export const InfoContainer = styled.div`
 export const FormsContainer = styled.div`
   padding: 40px;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors['base-card']};
+  background-color:${(props) => props.theme["gray-100"]};
   width: 100%;
   min-width: 640px;
 
@@ -47,7 +47,7 @@ export const Heading = styled.div`
 
   div {
     span {
-      color: ${({ theme }) => theme.colors['base-subtitle']};
+      color: ${(props) => props.theme["black-900"]};
     }
 
     p {
@@ -58,7 +58,7 @@ export const Heading = styled.div`
 
 export const AddressHeading = styled(Heading)`
   svg {
-    color: ${({ theme }) => theme.colors['yellow-dark']};
+    color: ${(props) => props.theme["yellow-700"]};
   }
 `
 
@@ -77,7 +77,7 @@ export const PaymentContainer = styled(FormsContainer)``
 
 export const PaymentHeading = styled(Heading)`
   svg {
-    color: ${({ theme }) => theme.colors.purple};
+    color: ${(props) => props.theme["purple-500"]};
   }
 `
 
@@ -126,7 +126,7 @@ export const CoffeeInfo = styled.div`
 
   > button {
     padding: 6px 8px;
-    background-color: ${({ theme }) => theme.colors['base-button']};
+    background-color: ${(props) => props.theme["gray-300"]};
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -135,17 +135,17 @@ export const CoffeeInfo = styled.div`
     transition: all 0.2s;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors['base-hover']};
+      background-color: ${(props) => props.theme["gray-300"]};
     }
 
     > svg {
-      color: ${({ theme }) => theme.colors.purple};
+      color: ${(props) => props.theme["purple-500"]};
     }
 
     > span {
       ${mixins.fonts.buttonM};
       text-transform: uppercase;
-      color: ${({ theme }) => theme.colors['base-text']};
+      color: ${(props) => props.theme["gray-600"]};
     }
   }
 `
@@ -153,14 +153,14 @@ export const CoffeeInfo = styled.div`
 export const CartTotal = styled.div`
   padding: 40px;
   border-radius: 6px 36px;
-  background-color: ${({ theme }) => theme.colors['base-card']};
+  background-color:${(props) => props.theme["gray-100"]};
   width: 100%;
   min-width: 448px;
 
   > span {
     display: block;
     height: 1px;
-    background-color: ${({ theme }) => theme.colors['base-button']};
+    background-color: ${(props) => props.theme["gray-300"]};
     margin: 24px 0;
   }
 `
@@ -199,13 +199,13 @@ export const CheckoutButton = styled.button`
   text-transform: uppercase;
 
   ${mixins.fonts.buttonG};
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.yellow};
+  color: ${(props) => props.theme["white"]};
+  background-color: ${(props) => props.theme["yellow-500"]};
 
   transition: all 0.2s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors['yellow-dark']};
+    background-color: ${(props) => props.theme["yellow-700"]};
   }
 
   border-radius: 6px;

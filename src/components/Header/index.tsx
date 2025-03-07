@@ -4,7 +4,7 @@ import { Button } from "../Button";
 import { MapPin, ShoppingCart } from "phosphor-react";
 import { ButtonsWrapper } from "../Button/styles";
 import { Link } from "react-router-dom";
-import { useCart } from '../../hooks/UseCart'
+import { useCart } from '../../hooks/useCart'
 
 
 export function Header() {

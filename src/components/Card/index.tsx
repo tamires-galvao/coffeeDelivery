@@ -1,6 +1,6 @@
 import { Check, ShoppingCart } from "phosphor-react";
 import { useEffect, useState } from "react";
-import { useCart } from "../../hooks/UseCart";
+import { useCart } from "../../hooks/useCart";
 import {
   CardContainer,
   CartButton,

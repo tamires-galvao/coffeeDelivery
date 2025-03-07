@@ -12,7 +12,7 @@ import {
 } from 'phosphor-react'
 
 import { coffees } from '../../../data_coffee_list.json'
-import { useCart } from '../../hooks/UseCart'
+import { useCart } from '../../hooks/useCart'
 import { QuantityInput } from '../../components/Form/QuantityInput'
 import { TextInput } from '../../components/Form/TextInput'
 import { Radio } from '../../components/Form/Radio'
