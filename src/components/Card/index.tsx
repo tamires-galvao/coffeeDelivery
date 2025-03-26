@@ -1,5 +1,5 @@
 import { Check, ShoppingCart } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useCart } from "../../hooks/useCart";
 import {
   CardContainer,
@@ -30,38 +30,31 @@ type ProductCardProps = {
 export function ProductCard({ coffee }: ProductCardProps) {
   const [quantity, setQuantity] = useState(1);
   const [isItemAdded, setIsItemAdded] = useState(false);
-  const { addItem } = useCart();
+  const { addItem, getItemQuantity } = useCart();
 
-  function incrementQuantity() {
+  const currentQuantity = getItemQuantity(coffee.id); // Função fictícia para buscar quantidade no carrinho
+
+  const incrementQuantity = useCallback(() => {
     setQuantity((state) => state + 1);
-  }
+  }, []);
 
-  function decrementQuantity() {
-    if (quantity > 1) {
-      setQuantity((state) => state - 1);
-    }
-  }
+  const decrementQuantity = useCallback(() => {
+    setQuantity((state) => (state > 1 ? state - 1 : state));
+  }, []);
 
-  function handleAddItem() {
+  const handleAddItem = useCallback(() => {
     addItem({ id: coffee.id, quantity });
     setIsItemAdded(true);
-    setQuantity(1);
-  }
+  }, [coffee.id, quantity, addItem]);
 
   useEffect(() => {
-    let timeout: number;
-
     if (isItemAdded) {
-      timeout = setTimeout(() => {
+      const timeout = setTimeout(() => {
         setIsItemAdded(false);
       }, 1000);
-    }
 
-    return () => {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-    };
+      return () => clearTimeout(timeout);
+    }
   }, [isItemAdded]);
 
   return (
@@ -76,19 +69,24 @@ export function ProductCard({ coffee }: ProductCardProps) {
       </TagsContainer>
       <ProductName>{coffee.name}</ProductName>
       <ProductDescription>{coffee.description}</ProductDescription>
-      <Price>R$ {coffee.price.toFixed(2)} </Price>
+      <Price>R$ {coffee.price.toFixed(2)}</Price>
       <Controls>
-        <QuantityButton onClick={decrementQuantity}>-</QuantityButton>
+        <QuantityButton aria-label="Diminuir quantidade" onClick={decrementQuantity}>
+          -
+        </QuantityButton>
         <Quantity>{quantity}</Quantity>
-        <QuantityButton onClick={incrementQuantity}>+</QuantityButton>
-        <CartButton disabled={isItemAdded} onClick={handleAddItem}>
-          {isItemAdded ? (
-            <Check weight="fill" size={18}  />
-          ) : (
-            <ShoppingCart size={18} weight="fill"  />
-          )}
+        <QuantityButton aria-label="Aumentar quantidade" onClick={incrementQuantity}>
+          +
+        </QuantityButton>
+        <CartButton 
+          disabled={isItemAdded} 
+          onClick={handleAddItem} 
+          aria-label="Adicionar ao carrinho"
+        >
+          {isItemAdded ? <Check weight="fill" size={18} /> : <ShoppingCart size={18} weight="fill" />}
         </CartButton>
       </Controls>
+      {currentQuantity > 0 && <p>Já no carrinho: {currentQuantity}</p>}
     </CardContainer>
   );
 }

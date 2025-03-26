@@ -19,6 +19,7 @@ interface CartContextType {
   decrementItemQuantity: (itemId: Item['id']) => void
   incrementItemQuantity: (itemId: Item['id']) => void
   checkout: (order: OrderInfo) => void
+  getItemQuantity: (itemId: Item['id']) => number // Nova função adicionada
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -38,6 +39,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const navigate = useNavigate()
 
   const { cart, orders } = cartState
+
+  function getItemQuantity(itemId: Item['id']): number {
+    const item = cart.find((item) => item.id === itemId);
+    return item ? item.quantity : 0;
+  }
 
   function addItem(item: Item) {
     dispatch(addItemAction(item))
@@ -65,7 +71,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   }, [cartState])
 
   return (
-    <CartContext.Provider
+   <CartContext.Provider
       value={{
         cart,
         orders,
@@ -74,9 +80,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         decrementItemQuantity,
         incrementItemQuantity,
         checkout,
+        getItemQuantity, // Adicionando a função aqui
       }}
-    >
+   >
       {children}
-    </CartContext.Provider>
+  </CartContext.Provider>
   )
 }
