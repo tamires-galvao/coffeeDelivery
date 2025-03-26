@@ -32,7 +32,7 @@ export function ProductCard({ coffee }: ProductCardProps) {
   const [isItemAdded, setIsItemAdded] = useState(false);
   const { addItem, getItemQuantity } = useCart();
 
-  const currentQuantity = getItemQuantity(coffee.id); // Função fictícia para buscar quantidade no carrinho
+  const currentQuantity = getItemQuantity(coffee.id);
 
   const incrementQuantity = useCallback(() => {
     setQuantity((state) => state + 1);
