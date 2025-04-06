@@ -73,6 +73,11 @@ export const QuantityButton = styled.button`
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+  color: ${(props) => props.theme["purple-500"]};
+  transition: all 0.2s;
+  &:hover {
+    color: ${(props) => props.theme["purple-700"]};
+  }
 `;
 
 export const Quantity = styled.span`

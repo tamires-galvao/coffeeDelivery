@@ -46,7 +46,7 @@ export const Info = styled.div`
   border-color: transparent;
   background-origin: border-box;
   background-image: ${({ theme }) =>
-    `linear-gradient(to bottom right, ${theme.colors.yellow}, ${theme.colors.purple})`};
+    `linear-gradient(to bottom right, ${theme['yellow-700']}, ${theme['purple-700']})`};
 `
 
 export const InfoContent = styled.div`

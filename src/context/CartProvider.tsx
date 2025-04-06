@@ -9,7 +9,6 @@ import {
   removeItemAction,
 } from '../reduces/cart/actions'
 import { cartReducer, Item, Order } from '../reduces/cart/reducer'
-import { OrderInfo } from '../pages/Cart'
 
 interface CartContextType {
   cart: Item[]
@@ -18,7 +17,7 @@ interface CartContextType {
   removeItem: (itemId: Item['id']) => void
   decrementItemQuantity: (itemId: Item['id']) => void
   incrementItemQuantity: (itemId: Item['id']) => void
-  checkout: (order: OrderInfo) => void
+  checkout: (order: Order) => void
   getItemQuantity: (itemId: Item['id']) => number // Nova função adicionada
 }
 
@@ -53,7 +52,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     dispatch(removeItemAction(itemId))
   }
 
-  function checkout(order: OrderInfo) {
+  function checkout(order: Order) {
     dispatch(checkoutCartAction(order))
     navigate('/success') // Mova a navegação para fora do reducer
   }

@@ -71,7 +71,7 @@ export function ProductCard({ coffee }: ProductCardProps) {
       <ProductDescription>{coffee.description}</ProductDescription>
       <Price>R$ {coffee.price.toFixed(2)}</Price>
       <Controls>
-        <QuantityButton aria-label="Diminuir quantidade" onClick={decrementQuantity}>
+        <QuantityButton aria-label="Diminuir quantidade" onClick={decrementQuantity} >
           -
         </QuantityButton>
         <Quantity>{quantity}</Quantity>

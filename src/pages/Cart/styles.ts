@@ -87,10 +87,15 @@ export const PaymentOptions = styled.div`
   gap: 8px;
 
   > div {
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+  }
+
+  svg {
+    color: ${(props) => props.theme["purple-500"]};
   }
 `
 
@@ -126,16 +131,17 @@ export const CoffeeInfo = styled.div`
 
   > button {
     padding: 6px 8px;
-    background-color: ${(props) => props.theme["gray-300"]};
+    background-color: ${(props) => props.theme["gray-150"]};
     border-radius: 6px;
     display: flex;
     align-items: center;
     gap: 8px;
+    border:none;
 
     transition: all 0.2s;
 
     &:hover {
-      background-color: ${(props) => props.theme["gray-300"]};
+      background-color: ${(props) => props.theme["gray-200"]};
     }
 
     > svg {
@@ -160,7 +166,7 @@ export const CartTotal = styled.div`
   > span {
     display: block;
     height: 1px;
-    background-color: ${(props) => props.theme["gray-300"]};
+    background-color: ${(props) => props.theme["gray-150"]};
     margin: 24px 0;
   }
 `
@@ -197,6 +203,7 @@ export const CheckoutButton = styled.button`
   width: 100%;
   padding: 12px;
   text-transform: uppercase;
+  border: none;
 
   ${mixins.fonts.buttonG};
   color: ${(props) => props.theme["white"]};

@@ -1,14 +1,10 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { useTheme } from 'styled-components'
-import { useParams } from 'react-router-dom'
 
 import { useCart } from '../../hooks/useCart'
 import { Container, Heading, Info, InfoContent, Order } from './styles'
 
 export function Success() {
-  const { orders } = useCart()
-  const { orderId } = useParams()
-  const orderInfo = orders.find((order) => order.id === Number(orderId))
   const paymentMethod = {
     credit: 'Cartão de crédito',
     debit: 'Cartão de débito',
@@ -16,8 +12,15 @@ export function Success() {
   }
   const theme = useTheme()
 
-  if (!orderInfo?.id) {
-    return null
+  const { orders } = useCart()
+  const orderInfo = orders[orders.length - 1] // Último pedido
+
+  if (!orderInfo) {
+    return (
+      <Container>
+        <h2>Nenhum pedido encontrado 😕</h2>
+      </Container>
+    )
   }
 
   return (
@@ -32,8 +35,8 @@ export function Success() {
           <InfoContent>
             <div>
               <MapPin
-                color={theme.colors.white}
-                style={{ backgroundColor: theme.colors.purple }}
+                color={theme.white}
+                style={{ backgroundColor: theme['purple-500']}}
                 size={32}
               />
 
@@ -53,8 +56,8 @@ export function Success() {
 
             <div>
               <Timer
-                color={theme.colors.white}
-                style={{ backgroundColor: theme.colors.yellow }}
+                color={theme.white}
+                style={{ backgroundColor: theme['yellow-500'] }}
                 size={32}
               />
 
@@ -67,8 +70,8 @@ export function Success() {
 
             <div>
               <CurrencyDollar
-                color={theme.colors.white}
-                style={{ backgroundColor: theme.colors['${(props) => props.theme["yellow-700"]};'] }}
+                color={theme.white}
+                style={{ backgroundColor: theme['yellow-700'] }} 
                 size={32}
               />
 
@@ -82,7 +85,7 @@ export function Success() {
         </Info>
       </Order>
 
-      <img src="/images/delivery.svg" alt="Pedido concluído" />
+      <img src="/img/delivery.svg" alt="Pedido concluído" />
     </Container>
   )
 }

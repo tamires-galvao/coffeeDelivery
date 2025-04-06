@@ -4,6 +4,7 @@ export const HeaderContainer = styled.header`
     background: ${props => props.theme['gray-900']};
     color: ${props => props.theme['gray-50']};
     padding: 2rem 0 2rem;
+    border:none;
 `
 export const HeaderContent = styled.div`
     width: 100%;
@@ -13,4 +14,6 @@ export const HeaderContent = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border:none;
+    
 `
